@@ -96,11 +96,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Zeu APRK"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  bio              : "A curious developer documenting my journey through code, from Python basics to machine learning and beyond"
+  location         : "Seoul, Republic of Korea"
+  email            :  "parkzeu68@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
