@@ -96,7 +96,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Zeu APRK"
+  name             : "Zeu Park"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "A curious developer documenting my journey through code, from Python basics to machine learning and beyond"
   location         : "Seoul, Republic of Korea"
