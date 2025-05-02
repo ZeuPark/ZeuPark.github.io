@@ -10,8 +10,6 @@ tags:
 
 for문 안에서 또 for문이 작동하는 경우이다 ---> 좋진 않음
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 
 
@@ -96,7 +94,5 @@ for i in range (0 , lines + 1):
     print()
 
 ```
-
-</div>
 
 [Download this file](/assets/files/다중for문.py)

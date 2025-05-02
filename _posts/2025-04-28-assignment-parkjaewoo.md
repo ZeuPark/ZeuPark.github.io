@@ -1,5 +1,5 @@
 ---
-title: "2025-04-28 - assignment-ZeuPark"
+title: "2025-04-28 - assignment-parkjaewoo"
 date: 2025-04-28
 categories:
   - Python
@@ -9,8 +9,6 @@ tags:
 ---
 
 과제 1
-
-<div style="white-space: pre-wrap; word-break: break-word;">
 
 ```python
 
@@ -46,7 +44,5 @@ leap_year(user_input)
 
 
 ```
-
-</div>
 
 [Download this file](/assets/files/0428_과제_박제우.py)

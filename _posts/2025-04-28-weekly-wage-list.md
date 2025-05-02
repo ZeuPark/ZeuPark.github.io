@@ -10,8 +10,6 @@ tags:
 
 주급계산 이름, 근무시간, 시간당급여액 - 5명에 대해서
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 #주급계산 이름, 근무시간, 시간당급여액 - 5명에 대해서
 #홍길도 40 10000
@@ -74,7 +72,5 @@ for i in range (0,5):
 for i in range (0,5):
     print(f"{name_list[i]} {work_time_list[i]} {per_pay_list[i]} {pay_list[i]}")
 ```
-
-</div>
 
 [Download this file](/assets/files/주급_list.py)

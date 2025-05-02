@@ -10,8 +10,6 @@ tags:
 
 
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 
 제어구조 
@@ -53,7 +51,5 @@ for 변수명 in 반복형자료:
 
 
 ```
-
-</div>
 
 [Download this file](/assets/files/4월 25일 (금).txt)

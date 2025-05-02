@@ -1,5 +1,5 @@
 ---
-title: "2025-04-25 - assignment-ZeuPark"
+title: "2025-04-25 - assignment-parkjaewoo"
 date: 2025-04-25
 categories:
   - Python
@@ -9,8 +9,6 @@ tags:
 ---
 
 숫자를 10개 입력받아서 각각 짝수와 홀수의 합과 평균을 구해라
-
-<div style="white-space: pre-wrap; word-break: break-word;">
 
 ```python
 #숫자를 10개 입력받아서 각각 짝수와 홀수의 합과 평균을 구해라 
@@ -39,7 +37,5 @@ print(f"홀수의 평균은 {avg_odd}, 짝수의 평균은 {avg_even}")
 
 
 ```
-
-</div>
 
 [Download this file](/assets/files/4 25 과제 박제우.py)

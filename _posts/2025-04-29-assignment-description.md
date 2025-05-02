@@ -10,8 +10,6 @@ tags:
 
 No description provided.
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 
 
@@ -34,7 +32,5 @@ print("윤년확인 ")
 for i in range(2000, 2026):
     print(f"{i} = {isLeap(isLeap)}")
 ```
-
-</div>
 
 [Download this file](/assets/files/과제 설명.py)

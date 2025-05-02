@@ -10,8 +10,6 @@ tags:
 
 1. 입력부터
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 
 
@@ -41,7 +39,5 @@ print(odd_sum)
 
 
 ```
-
-</div>
 
 [Download this file](/assets/files/4월 25일 금 과제 설명.py)

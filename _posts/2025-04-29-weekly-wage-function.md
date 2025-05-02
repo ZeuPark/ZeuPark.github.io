@@ -10,8 +10,6 @@ tags:
 
 문법적으로 javascipt에 JSON 데이터 구조하고 동일
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 
 #문법적으로 javascipt에 JSON 데이터 구조하고 동일
@@ -102,7 +100,5 @@ main()
         
     
 ```
-
-</div>
 
 [Download this file](/assets/files/주급_함수.py)

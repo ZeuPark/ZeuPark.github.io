@@ -1,5 +1,5 @@
 ---
-title: "2025-04-29 - assignment-ZeuPark"
+title: "2025-04-29 - assignment-parkjaewoo"
 date: 2025-04-29
 categories:
   - Python
@@ -9,8 +9,6 @@ tags:
 ---
 
 문제 1 filter를 사용해서 글자수가 5글자 이상인 단어만 출력하기
-
-<div style="white-space: pre-wrap; word-break: break-word;">
 
 ```python
 
@@ -44,7 +42,5 @@ print(list2)
 list3 = (list(filter(lambda x : "o" in x, words)))
 print(len(list3))
 ```
-
-</div>
 
 [Download this file](/assets/files/0429_과제_박제우.py)

@@ -10,8 +10,6 @@ tags:
 
 키 값은 문자열을 주로 사용한다. 만일에 같은 키값을 두번쓰면 두번째꺼로 업데이트된다
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 colors = {"red":"빨간색", "blue":"파란색", "green":"초록색"}
 #키 값은 문자열을 주로 사용한다. 만일에 같은 키값을 두번쓰면 두번째꺼로 업데이트된다 
@@ -51,7 +49,5 @@ print(colors)
 
 
 ```
-
-</div>
 
 [Download this file](/assets/files/딕셔너리1.py)

@@ -10,8 +10,6 @@ tags:
 
 이 메모리로 가져와서 결합해라
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 import random #외부 모듈(파이썬의 경우에는 파일)을 이 메모리로 가져와서 결합해라 
               #이 메모리로 가져와서 결합해라
@@ -213,7 +211,5 @@ start()
         
 #filter는 검색용 함수이다. map은 연산용 함수이다. sort는 정렬용 함수이다. 그냥 그런거니까 받아드려라 
 ```
-
-</div>
 
 [Download this file](/assets/files/성적_함수.py)

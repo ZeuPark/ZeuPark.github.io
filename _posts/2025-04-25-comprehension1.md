@@ -10,8 +10,6 @@ tags:
 
 컴프리헨션
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 #컴프리헨션
 a = [1,2,3,4,5,6,7,8,9,10]
@@ -91,7 +89,5 @@ print(wordList3)
 
 
 ```
-
-</div>
 
 [Download this file](/assets/files/컴프리헨션1.py)

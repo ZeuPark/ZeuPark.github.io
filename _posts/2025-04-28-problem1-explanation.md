@@ -10,8 +10,6 @@ tags:
 
 No description provided.
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 
 workerList = []
@@ -44,7 +42,5 @@ if female_count > 0:
 
         
 ```
-
-</div>
 
 [Download this file](/assets/files/문제1 설명.py)

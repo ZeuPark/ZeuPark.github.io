@@ -10,8 +10,6 @@ tags:
 
 오늘의 과제
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 #오늘의 과제 
 #words = ["assembly", "java", "rain", "notebook", "north", 
@@ -49,7 +47,5 @@ print(resultList)
 
 
 ```
-
-</div>
 
 [Download this file](/assets/files/4월 29일 과제 답.py)

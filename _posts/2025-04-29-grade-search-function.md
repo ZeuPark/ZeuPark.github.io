@@ -10,8 +10,6 @@ tags:
 
 No description provided.
 
-<div style="white-space: pre-wrap; word-break: break-word;">
-
 ```python
 
 
@@ -101,7 +99,5 @@ main()
     
     
 ```
-
-</div>
 
 [Download this file](/assets/files/성적찾기_함수.py)
