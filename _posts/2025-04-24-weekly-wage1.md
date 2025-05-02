@@ -1,0 +1,33 @@
+---
+title: "2025-04-24 - weekly-wage1"
+date: 2025-04-24
+categories:
+  - Python
+tags:
+  - script
+  - example
+---
+
+이름, 시간당급여액, 근무시간
+
+<div style="white-space: pre-wrap; word-break: break-word;">
+
+```python
+#이름, 시간당급여액, 근무시간 
+employee_name = input("name: ")
+work_time = int(input("work hours: "))
+per_pay = int(input('wage per hour: '))
+
+pay = work_time * per_pay
+
+#대부분의 언어는 문자열과 정수를 더하면 정수를 문자열로 바꿔서 
+#문사열 합산연산을 수행, 파이썬은 str 을 용해서 정수를 문자열로 바꿔줘야 한다 
+
+print(employee_name + "님의 급여는" + str(pay) + " 입니다") #str을 안쓰면 concatenate error가 뜬다 
+
+
+```
+
+</div>
+
+[Download this file](/assets/files/주급1.py)

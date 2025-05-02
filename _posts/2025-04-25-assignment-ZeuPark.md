@@ -1,0 +1,45 @@
+---
+title: "2025-04-25 - assignment-ZeuPark"
+date: 2025-04-25
+categories:
+  - Python
+tags:
+  - script
+  - example
+---
+
+숫자를 10개 입력받아서 각각 짝수와 홀수의 합과 평균을 구해라
+
+<div style="white-space: pre-wrap; word-break: break-word;">
+
+```python
+#숫자를 10개 입력받아서 각각 짝수와 홀수의 합과 평균을 구해라 
+
+sum_odd = 0 
+sum_even = 0 
+avg_odd = 0 
+avg_even = 0
+number_counter_odd = 0
+number_counter_even = 0
+
+for i in range (1, 11):
+    n = int(input('숫자'))
+    if n % 2 == 1:
+        number_counter_odd += 1
+        sum_odd = sum_odd + n
+        avg_odd = sum_odd/number_counter_odd
+    else:
+        sum_even = sum_even + n
+        number_counter_even += 1
+        avg_even = sum_even/number_counter_even
+
+
+print(f"홀수의 합은 {sum_odd}, 짝수의 합은 {sum_even}")
+print(f"홀수의 평균은 {avg_odd}, 짝수의 평균은 {avg_even}")
+
+
+```
+
+</div>
+
+[Download this file](/assets/files/4 25 과제 박제우.py)

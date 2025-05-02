@@ -1,0 +1,55 @@
+---
+title: "2025-04-30 - assignment-answer-from-29th"
+date: 2025-04-30
+categories:
+  - Python
+tags:
+  - script
+  - example
+---
+
+오늘의 과제
+
+<div style="white-space: pre-wrap; word-break: break-word;">
+
+```python
+#오늘의 과제 
+#words = ["assembly", "java", "rain", "notebook", "north", 
+#            "south", "hospital", "programming", "house", "hour"]
+#문제1. filter를 사용해서 글자수가 6글자 이상인 단어만 출력하기 (컴프리핸션X)
+#문제2. map함수를 사용해서 글자를 대문자로 바꾸어서 출력하기  (컴프리핸션X)
+#문제3. sorted 함수를 사용하여 단어들의 길이순으로 오름차순 정렬하여 출력하기
+#문제4. sorted 함수를 사용하여 알파벳 순으로 내림차순으로 정렬하여 출력하기 
+#문제5. 단어중에 o가 포함되는 단어가 모두 몇개인지 카운트하기 (힌트,filter를 사용)  
+
+
+words = ["assembly", "java", "rain", "notebook", "north", 
+           "south", "hospital", "programming", "house", "hour"]
+
+
+#x에 전달되는건 string타입이다. len(x)로 문자열 길이를 알 수 있다. 
+#파이썬의 람다는 한줄만 가능. 다른 언어는 2중 이상도 많음 
+#인덴테이션(들여쓰기)를 통해 블럭 코드의 시작 끝을 알 수 있는 한계점 {}
+#2중 이상이면 함수 만들어라....
+resultList = list(filter(lambda x: len(x)>=6, words))
+print(resultList)
+
+resultList = list(map(lambda x: x.upper(), words))
+print(resultList)
+
+
+sortedList1 = sorted(words, key=lambda x: len(x))
+print(sortedList1)
+
+sortedList2 = sorted(words)
+print(sortedList1)
+
+resultList = list(filter(lambda w:"o" in w, words))
+print(resultList)
+
+
+```
+
+</div>
+
+[Download this file](/assets/files/4월 29일 과제 답.py)
