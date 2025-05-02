@@ -1,6 +1,7 @@
 ---
 title: "2025-04-28 - weekly-wage-list"
 date: 2025-04-28
+layout: single
 categories:
   - Python
 tags:

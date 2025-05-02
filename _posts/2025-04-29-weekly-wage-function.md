@@ -1,6 +1,7 @@
 ---
 title: "2025-04-29 - weekly-wage-function"
 date: 2025-04-29
+layout: single
 categories:
   - Python
 tags:

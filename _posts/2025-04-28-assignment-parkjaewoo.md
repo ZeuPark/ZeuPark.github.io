@@ -1,6 +1,7 @@
 ---
 title: "2025-04-28 - assignment-parkjaewoo"
 date: 2025-04-28
+layout: single
 categories:
   - Python
 tags:

@@ -1,6 +1,7 @@
 ---
 title: "2025-04-24 - numeral-system"
 date: 2025-04-24
+layout: single
 categories:
   - Python
 tags:

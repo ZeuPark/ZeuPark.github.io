@@ -1,6 +1,7 @@
 ---
 title: "2025-04-28 - nested-for-loop"
 date: 2025-04-28
+layout: single
 categories:
   - Python
 tags:

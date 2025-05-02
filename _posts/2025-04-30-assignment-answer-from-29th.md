@@ -1,6 +1,7 @@
 ---
 title: "2025-04-30 - assignment-answer-from-29th"
 date: 2025-04-30
+layout: single
 categories:
   - Python
 tags:

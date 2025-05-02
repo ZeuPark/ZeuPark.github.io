@@ -1,6 +1,7 @@
 ---
 title: "2025-04-24 - weekly-wage1"
 date: 2025-04-24
+layout: single
 categories:
   - Python
 tags:

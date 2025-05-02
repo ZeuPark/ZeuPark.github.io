@@ -1,6 +1,7 @@
 ---
 title: "2025-04-24 - problem5-answer"
 date: 2025-04-24
+layout: single
 categories:
   - Python
 tags:
