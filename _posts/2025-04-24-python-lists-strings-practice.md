@@ -1,5 +1,6 @@
 ---
 title: "Python Lists and Strings Practice"
+date: 2025-04-24
 layout: single
 tags:
   - python
