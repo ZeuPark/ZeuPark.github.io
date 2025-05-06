@@ -4,5 +4,5 @@ permalink: /
 title: ""
 author_profile: true
 entries_layout: list
-paginate: true
+show_date: true
 ---
