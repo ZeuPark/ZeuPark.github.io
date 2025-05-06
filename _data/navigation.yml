@@ -1,11 +1,9 @@
 main:
-  - title: "About"
-    url: /about/
+  - title: "Home"
+    url: https://zeupark.github.io/
   - title: "Posts"
     url: /year-archive/
-  - title: "Projects"
-    url: /projects/
-  - title: "Resume"
-    url: /resume/
+  - title: "Tags"
+    url: /tags/
   - title: "GitHub"
     url: https://github.com/ZeuPark
