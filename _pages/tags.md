@@ -41,7 +41,7 @@ author_profile: true
   }
 </style>
 
-<!-- 상단 태그 버튼 -->
+<!-- 상단 태그 버튼 출력 -->
 <div class="tag-buttons">
   {% assign sorted_tags = site.tags | sort %}
   {% for tag in sorted_tags %}
@@ -49,7 +49,7 @@ author_profile: true
   {% endfor %}
 </div>
 
-<!-- 태그별 포스트 목록 -->
+<!-- 태그별 글 목록 -->
 {% for tag in sorted_tags %}
   <div class="tag-section" id="{{ tag[0] | slugify }}">
     <h2>#{{ tag[0] }}</h2>
