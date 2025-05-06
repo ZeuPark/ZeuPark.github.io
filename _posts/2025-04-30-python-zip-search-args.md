@@ -4,9 +4,7 @@ date: 2025-04-30
 layout: single
 tags:
   - python
-  - zip
-  - args
-  - search
+
 excerpt: "In this post, I practiced using zip to combine lists, understood how sequential search works, and wrote functions with variable arguments using *args."
 ---
 

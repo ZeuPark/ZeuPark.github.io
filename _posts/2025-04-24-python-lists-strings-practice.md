@@ -4,8 +4,7 @@ date: 2025-04-24
 layout: single
 tags:
   - python
-  - list
-  - string
+
 excerpt: "I practiced how to use Python lists and strings. Here's what I learned through some simple examples."
 ---
 

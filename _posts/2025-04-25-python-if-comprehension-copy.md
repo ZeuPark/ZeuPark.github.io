@@ -4,9 +4,7 @@ date: 2025-04-25
 layout: single
 tags:
   - python
-  - if-statement
-  - comprehension
-  - copy
+
 excerpt: "In this post, I practiced using if statements and learned the difference between shallow and deep copy using list comprehension."
 ---
 

@@ -4,10 +4,7 @@ date: 2025-04-29
 layout: single
 tags:
   - python
-  - function
-  - dictionary
-  - list
-  - reference
+
 excerpt: "I practiced creating Python functions that work with dictionaries and lists. I also explored the difference between value and reference in function arguments."
 ---
 

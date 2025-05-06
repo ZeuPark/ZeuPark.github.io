@@ -4,9 +4,7 @@ date: 2025-05-02
 layout: single
 tags:
   - python
-  - game
-  - random
-  - input
+
 excerpt: "I built a number baseball game where the player guesses a 3-digit number. The game tells you how many strikes, balls, and outs you got each round."
 ---
 

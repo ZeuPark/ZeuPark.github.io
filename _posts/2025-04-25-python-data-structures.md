@@ -4,9 +4,7 @@ date: 2025-04-25
 layout: single
 tags:
   - python
-  - list
-  - tuple
-  - dictionary
+
 excerpt: "I practiced how to use three major Python data structures: lists, tuples, and dictionaries. Here's how each one works and how they are different."
 ---
 

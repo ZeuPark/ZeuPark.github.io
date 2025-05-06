@@ -4,8 +4,7 @@ date: 2025-04-25
 layout: single
 tags:
   - python
-  - for-loop
-  - input
+
 excerpt: "I practiced using Python for loops to print ranges, compute sums, and handle user input. Here’s what I learned."
 ---
 

@@ -4,9 +4,7 @@ date: 2025-04-28
 layout: single
 tags:
   - python
-  - while-loop
-  - for-loop
-  - nested-loop
+
 excerpt: "In this post, I practiced using while loops and nested for loops to print number patterns, multiplication tables, and shapes like triangles and diamonds."
 ---
 

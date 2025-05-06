@@ -4,8 +4,7 @@ date: 2025-04-25
 layout: single
 tags:
   - python
-  - if-statement
-  - condition
+
 excerpt: "I practiced how to use if, elif, and else in Python to build a simple grading program based on total score."
 ---
 

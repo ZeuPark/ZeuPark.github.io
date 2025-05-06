@@ -4,9 +4,7 @@ date: 2025-04-28
 layout: single
 tags:
   - python
-  - list
-  - dictionary
-  - input
+
 excerpt: "I practiced using lists and dictionaries to handle user input, calculate averages and wages, and compare different ways to store structured data."
 ---
 

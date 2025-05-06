@@ -4,9 +4,7 @@ date: 2025-05-02
 layout: single
 tags:
   - python
-  - game
-  - random
-  - function
+
 excerpt: "I created a simple rock-paper-scissors game using Python. I used functions to decide the winner, stored game results in a list, and ran the game 10 times."
 ---
 

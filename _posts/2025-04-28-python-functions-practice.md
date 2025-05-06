@@ -4,8 +4,7 @@ date: 2025-04-28
 layout: single
 tags:
   - python
-  - function
-  - return
+
 excerpt: "In this post, I practiced how to define and use functions in Python, including parameters, return values, and simple examples."
 ---
 

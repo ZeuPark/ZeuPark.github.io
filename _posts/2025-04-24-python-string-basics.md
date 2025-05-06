@@ -4,7 +4,7 @@ date: 2025-04-24
 layout: single
 tags:
   - python
-  - string
+
 excerpt: "In this post, I practiced how to work with strings in Python, including indexing, slicing, escape characters, and string functions."
 ---
 

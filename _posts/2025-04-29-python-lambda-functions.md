@@ -4,8 +4,7 @@ date: 2025-04-29
 layout: single
 tags:
   - python
-  - lambda
-  - functional-programming
+
 excerpt: "I practiced lambda functions in Python, learning how to use them for short anonymous functions, pass them as arguments, and filter lists."
 ---
 
