@@ -9,7 +9,7 @@ excerpt: "This is a summary post about certain aspects that that needs to be dis
 Object-Oriented Programming (OOP)"
 ---
 
-## 
+## Introdction
 There were certain concepts that I had hard time understanding as it is first time learning Object-Oriented Programming(OOP). OOP is often referred as a living oragnism, mostly human, that has unique traits and actions that does a human. However, this made me even harder to understand what OOP is. 
 It is hard for me to imagine that a programm could act like an organism. Moreover I didn`t understand what aspect of organism is depicted through OOP. Therefore, I make a summary of concepts to make the concpets clear. 
 
@@ -19,7 +19,7 @@ It is hard for me to imagine that a programm could act like an organism. Moreove
 
 ### 1. What is `__init__`? 
 
--`__init__` is the constructor method. So it is basically something that is already made by python. It runs automatically when and object is created, and it`s used to initialize attribute. It creates the unique traits of the class. Surprisingly,  `__init__` is a short term of initialize. 
+-`__init__` is the constructor method. So it is basically something that is already made by python. It runs automatically when and object is created, and it's used to initialize attribute. It creates the unique traits of the class. Surprisingly,  `__init__` is a short term of initialize. 
 
 ---
 
