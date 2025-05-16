@@ -1,6 +1,6 @@
 ---
 title: "Mastering Methods in Python OOP: Class, Static, and Decorators"
-date: 2025-05-12
+date: 2025-05-13
 layout: single
 tags:
   - python

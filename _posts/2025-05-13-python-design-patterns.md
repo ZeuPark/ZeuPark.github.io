@@ -1,6 +1,6 @@
 ---
 title: "Applying Design Patterns and Structure in Python: Singleton, Modules, Packages"
-date: 2025-05-12
+date: 2025-05-13
 layout: single
 tags:
   - python
