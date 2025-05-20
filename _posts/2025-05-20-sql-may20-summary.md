@@ -1,11 +1,11 @@
 ---
-title: "Deeper Learning Into SQL"
+title: "Further Learning Into SQL"
 date: 2025-05-20
 layout: single
 tags:
   - sql
 
-excerpt: "Using real `.sql` files instead of tutorials helped me understand how SQL behaves in actual scenarios — including filtering, grouping, and debugging complex queries."
+excerpt: "Learning through `.sql` files instead of tutorials helped me understand how SQL behaves in actual scenarios — including filtering, grouping, and debugging complex queries."
 ---
 
 ## Introduction
