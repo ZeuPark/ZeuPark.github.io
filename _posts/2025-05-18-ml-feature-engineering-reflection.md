@@ -3,9 +3,9 @@ title: "From Confusion to Clarity: My Journey Into Machine Learning and Feature 
 date: 2025-05-18
 layout: single
 tags:
+  - project
   - machine-learning
-  - preprocessing
-  - feature-engineering
+
 excerpt: "This post traces my path through the foundational struggles of machine learning and data preprocessing, and how a Russian number plate dataset helped me understand the true meaning of feature engineering."
 ---
 

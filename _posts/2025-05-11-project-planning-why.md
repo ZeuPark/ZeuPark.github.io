@@ -3,9 +3,8 @@ title: "Why Planning Matters: My Thought Process Behind a Data Project"
 date: 2025-05-11
 layout: single
 tags:
-  - data
-  - planning
-  - portfolio
+  - project
+
 excerpt: "A look into how asking 'why' guided my thinking while designing a data analysis project, before writing a single line of code."
 ---
 
