@@ -1,5 +1,5 @@
 ---
-title: "Learning SQL One Question at a Time: What I Asked and Understood on May 20"
+title: "Learning SQL One Question at a Time: What I Asked and Understood"
 date: 2025-05-20
 layout: single
 tags:
