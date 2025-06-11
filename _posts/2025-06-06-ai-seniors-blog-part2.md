@@ -1,6 +1,6 @@
 ---
 title: "Building an AI Platform for Seniors: Facing Real-World Challenges"  
-date: 2025-06-11  
+date: 2025-06-06  
 layout: single  
 tags:  
   - project  

@@ -1,6 +1,6 @@
 ---
 title: "Production Readiness: Data Classification, Security, and Portfolio Development"  
-date: 2025-06-11  
+date: 2025-06-10  
 layout: single  
 tags:  
   - project  

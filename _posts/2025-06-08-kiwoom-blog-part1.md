@@ -1,6 +1,6 @@
 ---
 title: "Bridging Legacy and Modern: Integrating Kiwoom API with Modern Web Architecture"  
-date: 2025-06-11  
+date: 2025-06-08  
 layout: single  
 tags:  
   - project  
