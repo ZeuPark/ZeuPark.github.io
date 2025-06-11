@@ -4,7 +4,7 @@ date: 2025-06-01
 layout: single  
 tags:  
   - algorithms  
-  - sorting  
+  
   - python  
 
 excerpt: "I explored three fundamental sorting algorithms to understand how lists work and gained my first real introduction to algorithmic thinking."  
