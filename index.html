@@ -4,19 +4,13 @@ author_profile: true
 paginate: true
 ---
 
-<div class="custom-intro">
-    <h1>Welcome to Zeu's Blog</h1>
-    <p>Explore AI, LLMs, and more</p>
-  </div>
-  
-  <!-- 페이지네이션 블록 삽입 -->
-  {% if paginator.total_pages > 1 %}
-    <nav class="pagination">
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | relative_url }}" class="prev">Previous</a>
-      {% endif %}
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next</a>
-      {% endif %}
-    </nav>
-  {% endif %}
+{% if paginator.total_pages > 1 %}
+  <nav class="pagination" role="navigation">
+    {% if paginator.previous_page %}
+      <a class="pagination__prev" href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
+    {% endif %}
+    {% if paginator.next_page %}
+      <a class="pagination__next" href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+    {% endif %}
+  </nav>
+{% endif %}
