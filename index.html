@@ -3,3 +3,20 @@ layout: home
 author_profile: true
 paginate: true
 ---
+
+<div class="custom-intro">
+    <h1>Welcome to Zeu's Blog</h1>
+    <p>Explore AI, LLMs, and more</p>
+  </div>
+  
+  <!-- 페이지네이션 블록 삽입 -->
+  {% if paginator.total_pages > 1 %}
+    <nav class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="prev">Previous</a>
+      {% endif %}
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next</a>
+      {% endif %}
+    </nav>
+  {% endif %}
