@@ -1,0 +1,252 @@
+---
+layout: home  
+author_profile: true  
+paginate: true  
+---
+
+<style>
+/* 향상된 페이지네이션 스타일 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pagination__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #6c757d;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+}
+
+.pagination__item:hover {
+  color: #495057;
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pagination__item--current {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.pagination__item--disabled {
+  color: #adb5bd;
+  background-color: #fff;
+  border-color: #dee2e6;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.pagination__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+.pagination__nav svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.pagination__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.pagination__stats {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .pagination {
+    margin: 2rem 0;
+    gap: 0.25rem;
+  }
+  
+  .pagination__item {
+    min-width: 40px;
+    height: 40px;
+    padding: 0.375rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .pagination__nav span {
+    display: none;
+  }
+}
+
+/* 다크 테마 지원 - Minimal Mistakes dark skin */
+.dark .pagination__item,
+[data-theme="dark"] .pagination__item {
+  color: #adb5bd;
+  background-color: #212529;
+  border-color: #495057;
+}
+
+.dark .pagination__item:hover,
+[data-theme="dark"] .pagination__item:hover {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #6c757d;
+}
+
+.dark .pagination__item--current,
+[data-theme="dark"] .pagination__item--current {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.dark .pagination__item--disabled,
+[data-theme="dark"] .pagination__item--disabled {
+  color: #6c757d;
+  background-color: #212529;
+  border-color: #495057;
+}
+
+.dark .pagination__info,
+[data-theme="dark"] .pagination__info {
+  color: #adb5bd;
+}
+</style>
+
+{% if paginator.total_pages > 1 %}
+  <!-- 페이지네이션 정보 -->
+  <div class="pagination__info">
+    <div class="pagination__stats">
+      {{ paginator.page }}페이지 / 총 {{ paginator.total_pages }}페이지
+    </div>
+    <div>
+      전체 {{ paginator.total_posts }}개 포스트 중 
+      {% assign start_post = paginator.per_page | times: paginator.previous_page | plus: 1 %}
+      {% assign end_post = paginator.per_page | times: paginator.page %}
+      {% if end_post > paginator.total_posts %}{% assign end_post = paginator.total_posts %}{% endif %}
+      {{ start_post }}-{{ end_post }}번째 표시
+    </div>
+  </div>
+
+  <nav class="pagination" role="navigation" aria-label="페이지네이션">
+    <!-- 첫 페이지 링크 -->
+    {% if paginator.page > 2 %}
+      <a href="{{ '/' | relative_url }}" class="pagination__item" aria-label="첫 페이지로">
+        <svg viewBox="0 0 24 24">
+          <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"/>
+        </svg>
+      </a>
+    {% endif %}
+
+    <!-- 이전 페이지 링크 -->
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination__item" aria-label="이전 페이지">
+        <div class="pagination__nav">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+          <span>이전</span>
+        </div>
+      </a>
+    {% else %}
+      <span class="pagination__item pagination__item--disabled" aria-label="이전 페이지 없음">
+        <div class="pagination__nav">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+          <span>이전</span>
+        </div>
+      </span>
+    {% endif %}
+
+    <!-- 페이지 번호들 -->
+    {% assign start_page = paginator.page | minus: 2 %}
+    {% if start_page < 1 %}{% assign start_page = 1 %}{% endif %}
+    
+    {% assign end_page = paginator.page | plus: 2 %}
+    {% if end_page > paginator.total_pages %}{% assign end_page = paginator.total_pages %}{% endif %}
+    
+    {% if start_page > 1 %}
+      <a href="{{ '/' | relative_url }}" class="pagination__item">1</a>
+      {% if start_page > 2 %}
+        <span class="pagination__item pagination__item--disabled">…</span>
+      {% endif %}
+    {% endif %}
+
+    {% for page in (start_page..end_page) %}
+      {% if page == paginator.page %}
+        <span class="pagination__item pagination__item--current" aria-current="page" aria-label="현재 페이지, 페이지 {{ page }}">
+          {{ page }}
+        </span>
+      {% else %}
+        {% if page == 1 %}
+          <a href="{{ '/' | relative_url }}" class="pagination__item" aria-label="페이지 {{ page }}">{{ page }}</a>
+        {% else %}
+          <a href="{{ site.paginate_path | replace: ':num', page | relative_url }}" class="pagination__item" aria-label="페이지 {{ page }}">{{ page }}</a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if end_page < paginator.total_pages %}
+      {% if end_page < paginator.total_pages | minus: 1 %}
+        <span class="pagination__item pagination__item--disabled">…</span>
+      {% endif %}
+      <a href="{{ site.paginate_path | replace: ':num', paginator.total_pages | relative_url }}" class="pagination__item">{{ paginator.total_pages }}</a>
+    {% endif %}
+
+    <!-- 다음 페이지 링크 -->
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="pagination__item" aria-label="다음 페이지">
+        <div class="pagination__nav">
+          <span>다음</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </div>
+      </a>
+    {% else %}
+      <span class="pagination__item pagination__item--disabled" aria-label="다음 페이지 없음">
+        <div class="pagination__nav">
+          <span>다음</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </div>
+      </a>
+    {% endif %}
+
+    <!-- 마지막 페이지 링크 -->
+    {% if paginator.page < paginator.total_pages | minus: 1 %}
+      <a href="{{ site.paginate_path | replace: ':num', paginator.total_pages | relative_url }}" class="pagination__item" aria-label="마지막 페이지로">
+        <svg viewBox="0 0 24 24">
+          <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"/>
+        </svg>
+      </a>
+    {% endif %}
+  </nav>
+{% endif %}
