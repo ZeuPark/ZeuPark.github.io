@@ -97,14 +97,14 @@ analytics:
 # Site Author
 author:
   name             : "Zeu Park"
-  avatar           :  "/assets/images/CodingCat.png"
+  avatar           :  "/assets/images/CodingCat2.png"
   bio              : "A curious developer documenting my journey through code, from Python basics to machine learning and beyond"
   location         : "Seoul, Republic of Korea"
   email            :  "parkzeu68@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:parkzeu68@gmail.com"
+      # url: "mailto:parkzeu68@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
