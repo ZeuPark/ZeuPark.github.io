@@ -132,10 +132,10 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
+      url: "https://github.com/ZeuPark"
+    - label: "LinkedIn  "
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/zeupark/"
     - label: "Bitbucket"
       icon: "fab fa-fw fa-bitbucket"
       # url:
