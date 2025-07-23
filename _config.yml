@@ -1,6 +1,6 @@
 
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "dark"
+minimal_mistakes_skin: "default"
 
 title: "Zeu's Coding Notes"
 name: "Zeu Park"
