@@ -1,0 +1,109 @@
+---
+layout: null
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | Zeu's Notes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg: #FAFAF8;
+      --color-text: #1A1A18;
+      --color-text-muted: #6B6B66;
+      --color-accent: #C4A77D;
+      --color-accent-dark: #8B7355;
+      --color-border: #E8E8E4;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .error-code {
+      font-family: var(--font-serif);
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 300;
+      color: var(--color-border);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .error-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .error-message {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 400px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .home-link {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      font-size: 0.875rem;
+      font-family: var(--font-sans);
+      color: var(--color-bg);
+      background: var(--color-text);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+    }
+
+    .home-link:hover {
+      background: var(--color-accent-dark);
+    }
+
+    .nav-logo {
+      position: absolute;
+      top: 1.5rem;
+      left: 2rem;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    .nav-logo:hover {
+      color: var(--color-accent-dark);
+    }
+  </style>
+</head>
+<body>
+  <a href="{{ '/' | relative_url }}" class="nav-logo">Zeu's Notes</a>
+
+  <div class="error-code">404</div>
+  <h1 class="error-title">Page Not Found</h1>
+  <p class="error-message">
+    The page you're looking for doesn't exist or has been moved.
+  </p>
+  <a href="{{ '/' | relative_url }}" class="home-link">Back to Home</a>
+</body>
+</html>
