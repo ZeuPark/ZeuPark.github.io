@@ -3,8 +3,8 @@ title: "Choosing FAISS over Weaviate for Vector Search in Resource-Limited Envir
 date: 2025-06-10  
 layout: single  
 tags:  
-  - AIPlayground  
-  - Database  
+  - ai-playground  
+  - database  
   - project  
 excerpt: "This post documents my decision-making process between FAISS and Weaviate for implementing vector similarity search in a resource-constrained AI project."  
 ---

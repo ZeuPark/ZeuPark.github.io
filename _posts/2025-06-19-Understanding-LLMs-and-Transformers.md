@@ -3,9 +3,9 @@ title: "What is an LLM, and Why Are Transformer Models So Dominant?"
 date: 2025-06-19  
 layout: single  
 tags:  
-  - LLM  
+  - llm  
   - project  
-  - AIPlayground  
+  - ai-playground  
 excerpt: "This post discusses the fundamental concepts behind LLMs and transformer architecture, and explains why transformers have become the backbone of modern AI models."  
 ---
 

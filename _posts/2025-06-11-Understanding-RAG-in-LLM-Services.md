@@ -3,8 +3,8 @@ title: "Understanding the Role of RAG in LLM-Based Services"
 date: 2025-06-11  
 layout: single  
 tags:  
-  - AIPlayground  
-  - LLM  
+  - ai-playground  
+  - llm  
   - project  
 
 excerpt: "This post explores why Retrieval-Augmented Generation (RAG) is critical when deploying large language models (LLMs), and how it helps mitigate hallucination and improve response relevance."  

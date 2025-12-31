@@ -3,8 +3,8 @@ title: "Why I Chose vLLM for High-Performance LLM Serving"
 date: 2025-06-12  
 layout: single  
 tags:  
-  - LLM  
-  - AIPlayground  
+  - llm  
+  - ai-playground  
   - project  
 
 excerpt: "This post explores why vLLM became the backbone of my LLM service infrastructure, focusing on speed, scalability, and real-world deployment challenges."  

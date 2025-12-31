@@ -3,9 +3,9 @@ title: "Deploying LLM Services on a Minimal Server: Navigating the Constraints"
 date: 2025-06-18  
 layout: single  
 tags:  
-  - LLM  
+  - llm  
   - project  
-  - AIPlayground  
+  - ai-playground  
 excerpt: "This post explores the challenges and solutions for deploying LLM services on small, cost-constrained servers like Oracle Cloud Free Tier — a crucial skill for resource-limited developers."  
 ---
 
