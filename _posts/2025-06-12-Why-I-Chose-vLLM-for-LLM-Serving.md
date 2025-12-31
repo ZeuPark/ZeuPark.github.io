@@ -4,7 +4,7 @@ date: 2025-06-12
 layout: single  
 tags:  
   - llm  
-  - ai-playground  
+  - project  
   - project  
 
 excerpt: "This post explores why vLLM became the backbone of my LLM service infrastructure, focusing on speed, scalability, and real-world deployment challenges."  

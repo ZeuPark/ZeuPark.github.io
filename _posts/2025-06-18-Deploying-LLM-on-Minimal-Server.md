@@ -5,7 +5,7 @@ layout: single
 tags:  
   - llm  
   - project  
-  - ai-playground  
+  - project  
 excerpt: "This post explores the challenges and solutions for deploying LLM services on small, cost-constrained servers like Oracle Cloud Free Tier — a crucial skill for resource-limited developers."  
 ---
 

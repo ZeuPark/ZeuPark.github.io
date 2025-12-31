@@ -4,7 +4,7 @@ date: 2025-06-20
 layout: single  
 tags:  
   - llm  
-  - ai-playground  
+  - project  
   - project  
 excerpt: "This post explains the concept of fine-tuning large language models (LLMs) from a practical perspective, focusing on shaping model outputs through diverse and targeted prompt-response data."  
 ---

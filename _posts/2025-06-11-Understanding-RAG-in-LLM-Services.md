@@ -3,7 +3,7 @@ title: "Understanding the Role of RAG in LLM-Based Services"
 date: 2025-06-11  
 layout: single  
 tags:  
-  - ai-playground  
+  - project  
   - llm  
   - project  
 

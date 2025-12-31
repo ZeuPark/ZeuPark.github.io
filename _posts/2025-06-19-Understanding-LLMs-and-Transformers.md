@@ -5,7 +5,7 @@ layout: single
 tags:  
   - llm  
   - project  
-  - ai-playground  
+  - project  
 excerpt: "This post discusses the fundamental concepts behind LLMs and transformer architecture, and explains why transformers have become the backbone of modern AI models."  
 ---
 
