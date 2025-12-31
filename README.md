@@ -1,17 +1,30 @@
-# Zeu's Coding Notes
+# Zeu's Notes
 
-이 블로그는 제가 개인적으로 하는 개발 공부의 기록과 문제 해결 과정을 기록하는 공간입니다.
+Exploring energy, data, and everything in between.
 
-- **주요 주제:** Python, 프로그래밍 기초, 자료구조, OOP, 프로젝트 회고 등
-- **기술 스택:** Jekyll + Minimal Mistakes 테마
-- **블로그 주소:** [https://zeupark.github.io/](https://zeupark.github.io/)
+## About
 
-## 소개
+Electrical Engineering student at UNSW, exploring the intersection of Power & Energy systems, data analysis, and Machine Learning. This blog documents my coding journey, problem-solving processes, and energy data projects.
 
-개발자로 성장하는 과정을 기록하며, 배운 내용과 실수, 그리고 깨달음을 공유합니다.
+## Topics
 
+- Python & Programming Fundamentals
+- Data Structures & Algorithms
+- Energy Data Analysis
+- Machine Learning
+- Project Retrospectives
 
+## Tech Stack
 
-## 라이선스
+- Jekyll + Minimal Mistakes Theme
+- GitHub Pages
+
+## Links
+
+- **Blog:** [zeupark.github.io](https://zeupark.github.io/)
+- **GitHub:** [github.com/ZeuPark](https://github.com/ZeuPark)
+- **LinkedIn:** [linkedin.com/in/zeupark](https://www.linkedin.com/in/zeupark/)
+
+## License
 
 MIT License
