@@ -1,87 +1,421 @@
 ---
-layout: default
+layout: null
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title | default: "Zeu's Coding Notes" }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
 
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% elsif page.header.video.id and page.header.video.provider %}
-  {% include page__hero_video.html %}
-{% endif %}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-{% assign breadcrumbs_enabled = site.breadcrumbs %}
-{% if page.breadcrumbs != null %}
-  {% assign breadcrumbs_enabled = page.breadcrumbs %}
-{% endif %}
-{% if page.url != "/" and breadcrumbs_enabled %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
-{% endif %}
+  <style>
+    :root {
+      --color-bg: #FAFAF8;
+      --color-bg-subtle: #F5F5F2;
+      --color-bg-code: #1a1a1a;
+      --color-text: #1A1A18;
+      --color-text-muted: #6B6B66;
+      --color-text-light: #9A9A94;
+      --color-accent: #C4A77D;
+      --color-accent-dark: #8B7355;
+      --color-border: #E8E8E4;
+      --color-border-dark: #D4D4CE;
 
-<div id="main" role="main">
-  {% include sidebar.html %}
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
-    {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
-    {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --content-width: 720px;
+      --wide-width: 1200px;
+    }
 
-    <div class="page__inner-wrap">
-      {% unless page.header.overlay_color or page.header.overlay_image %}
-        <header>
-          {% if page.title -%}
-          <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
-          </h1>
-          {%- endif %}
-          {% include page__meta.html %}
-        </header>
-      {% endunless %}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--color-accent); color: var(--color-bg); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--color-bg-subtle); }
+    ::-webkit-scrollbar-thumb { background: var(--color-border-dark); border-radius: 4px; }
 
-      <section class="page__content" itemprop="text">
-        {% if page.toc %}
-          <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
-              {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}
-            </nav>
-          </aside>
-        {% endif %}
-        {{ content }}
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
-      </section>
+    .container { max-width: var(--wide-width); margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
 
-      <footer class="page__meta">
-        {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
-        {% endif %}
-        {% include page__taxonomy.html %}
-        {% include page__date.html %}
-      </footer>
+    /* Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.25rem 0; background: var(--color-bg);
+      border-bottom: 1px solid transparent; transition: all 0.3s ease;
+    }
+    .nav.scrolled { border-bottom-color: var(--color-border); box-shadow: 0 1px 10px rgba(0,0,0,0.03); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo {
+      font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500;
+      letter-spacing: -0.02em; color: var(--color-text); text-decoration: none;
+    }
+    .nav-logo:hover { color: var(--color-accent-dark); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-link {
+      font-size: 0.875rem; color: var(--color-text-muted); text-decoration: none;
+      letter-spacing: 0.02em; position: relative; transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--color-accent);
+      transition: width 0.4s var(--ease-out-expo);
+    }
+    .nav-link:hover { color: var(--color-text); }
+    .nav-link:hover::after { width: 100%; }
 
-      {% if page.share %}{% include social-share.html %}{% endif %}
+    /* Article Header */
+    .article-header {
+      max-width: var(--content-width); margin: 0 auto;
+      padding: 6rem 0 3rem; text-align: center;
+    }
+    .article-meta {
+      display: flex; justify-content: center; align-items: center; gap: 1.5rem;
+      margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+    .article-date {
+      font-size: 0.8125rem; color: var(--color-text-light);
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .article-reading-time {
+      font-size: 0.8125rem; color: var(--color-text-light);
+      display: flex; align-items: center; gap: 0.375rem;
+    }
+    .article-reading-time::before {
+      content: ''; width: 4px; height: 4px; background: var(--color-border-dark);
+      border-radius: 50%;
+    }
+    .article-title {
+      font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400; line-height: 1.25; letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .article-tags { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
+    .article-tag {
+      font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--color-accent-dark); background: transparent;
+      padding: 0.375rem 0.75rem; border: 1px solid var(--color-accent);
+      text-decoration: none; transition: all 0.3s ease;
+    }
+    .article-tag:hover { background: var(--color-accent); color: var(--color-bg); }
 
-      {% include post_pagination.html %}
+    /* Article Content */
+    .article-content {
+      max-width: var(--content-width); margin: 0 auto; padding: 0 1.5rem;
+    }
+
+    /* Typography */
+    .article-content h1, .article-content h2, .article-content h3,
+    .article-content h4, .article-content h5, .article-content h6 {
+      font-family: var(--font-serif); font-weight: 500;
+      line-height: 1.3; margin: 2.5rem 0 1rem; letter-spacing: -0.02em;
+    }
+    .article-content h1 { font-size: 2.25rem; }
+    .article-content h2 { font-size: 1.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem; }
+    .article-content h3 { font-size: 1.375rem; }
+    .article-content h4 { font-size: 1.125rem; }
+
+    .article-content p {
+      margin-bottom: 1.5rem; font-size: 1.0625rem; line-height: 1.8;
+      color: var(--color-text);
+    }
+
+    .article-content a {
+      color: var(--color-accent-dark); text-decoration: underline;
+      text-underline-offset: 3px; text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+    .article-content a:hover { color: var(--color-text); text-decoration-color: var(--color-accent); }
+
+    .article-content ul, .article-content ol {
+      margin: 0 0 1.5rem 1.5rem; font-size: 1.0625rem; line-height: 1.8;
+    }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content li::marker { color: var(--color-accent-dark); }
+
+    .article-content blockquote {
+      margin: 2rem 0; padding: 1.5rem 2rem;
+      border-left: 3px solid var(--color-accent);
+      background: var(--color-bg-subtle);
+      font-family: var(--font-serif); font-size: 1.125rem;
+      font-style: italic; color: var(--color-text-muted);
+    }
+    .article-content blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    .article-content code {
+      font-family: var(--font-mono); font-size: 0.875em;
+      background: var(--color-bg-subtle); padding: 0.2em 0.4em;
+      border-radius: 3px; color: var(--color-accent-dark);
+    }
+
+    .article-content pre {
+      margin: 2rem 0; padding: 1.5rem; overflow-x: auto;
+      background: var(--color-bg-code); border-radius: 8px;
+      border: 1px solid #333;
+    }
+    .article-content pre code {
+      background: transparent; padding: 0; color: #e6e6e6;
+      font-size: 0.875rem; line-height: 1.6;
+    }
+
+    /* Syntax Highlighting - Dark Theme */
+    .highlight .c, .highlight .c1, .highlight .cm { color: #6a9955; }
+    .highlight .k, .highlight .kd, .highlight .kn, .highlight .kp { color: #569cd6; }
+    .highlight .s, .highlight .s1, .highlight .s2 { color: #ce9178; }
+    .highlight .n, .highlight .nv, .highlight .vi { color: #9cdcfe; }
+    .highlight .nf, .highlight .nb, .highlight .nc { color: #dcdcaa; }
+    .highlight .o, .highlight .p { color: #d4d4d4; }
+    .highlight .mi, .highlight .mf, .highlight .m { color: #b5cea8; }
+    .highlight .kt, .highlight .bp { color: #4ec9b0; }
+    .highlight .ow { color: #569cd6; }
+    .highlight .gh, .highlight .gu { color: #569cd6; font-weight: bold; }
+    .highlight .gd { color: #f44747; }
+    .highlight .gi { color: #6a9955; }
+    .highlight .err { color: #f44747; }
+
+    /* Tables */
+    .article-content table {
+      width: 100%; margin: 2rem 0; border-collapse: collapse;
+      font-size: 0.9375rem;
+    }
+    .article-content th, .article-content td {
+      padding: 0.875rem 1rem; text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .article-content th {
+      font-weight: 500; background: var(--color-bg-subtle);
+      border-bottom: 2px solid var(--color-border-dark);
+    }
+    .article-content tr:hover { background: var(--color-bg-subtle); }
+
+    /* Images */
+    .article-content img {
+      max-width: 100%; height: auto; margin: 2rem auto; display: block;
+      border-radius: 4px;
+    }
+
+    .article-content hr {
+      border: none; height: 1px; background: var(--color-border);
+      margin: 3rem 0;
+    }
+
+    /* Strong & Em */
+    .article-content strong { font-weight: 600; }
+    .article-content em { font-style: italic; }
+
+    /* Author Section */
+    .article-author {
+      max-width: var(--content-width); margin: 4rem auto 0; padding: 2rem 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+    .author-card {
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .author-avatar {
+      width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+      filter: grayscale(20%);
+    }
+    .author-info h4 {
+      font-family: var(--font-serif); font-size: 1.125rem; font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    .author-info p { font-size: 0.875rem; color: var(--color-text-muted); }
+
+    /* Related Posts */
+    .related-posts {
+      max-width: var(--content-width); margin: 4rem auto; padding: 0 1.5rem;
+    }
+    .related-posts h3 {
+      font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400;
+      margin-bottom: 1.5rem; padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .related-list { display: grid; gap: 1rem; }
+    .related-item {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 1rem 0; border-bottom: 1px solid var(--color-border);
+      text-decoration: none; transition: all 0.3s ease;
+    }
+    .related-item:hover { padding-left: 1rem; background: var(--color-bg-subtle); margin: 0 -1rem; padding-right: 1rem; }
+    .related-item-title {
+      font-size: 1rem; color: var(--color-text);
+      transition: color 0.3s ease;
+    }
+    .related-item:hover .related-item-title { color: var(--color-accent-dark); }
+    .related-item-date { font-size: 0.8125rem; color: var(--color-text-light); }
+
+    /* Post Navigation */
+    .post-nav {
+      max-width: var(--content-width); margin: 3rem auto; padding: 0 1.5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+    .post-nav-item {
+      padding: 1.5rem; border: 1px solid var(--color-border);
+      text-decoration: none; transition: all 0.3s ease;
+    }
+    .post-nav-item:hover { border-color: var(--color-accent); background: var(--color-bg-subtle); }
+    .post-nav-item--next { text-align: right; }
+    .post-nav-label {
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--color-text-light); margin-bottom: 0.5rem;
+    }
+    .post-nav-title {
+      font-family: var(--font-serif); font-size: 1.0625rem; color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 4rem 0; border-top: 1px solid var(--color-border); margin-top: 4rem;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+    .footer-text { font-size: 0.8125rem; color: var(--color-text-light); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-link { font-size: 0.8125rem; color: var(--color-text-muted); text-decoration: none; }
+    .footer-link:hover { color: var(--color-accent-dark); }
+
+    /* Animations */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { opacity: 0; animation: fadeSlideUp 0.6s var(--ease-out-expo) forwards; }
+    .fade-in-1 { animation-delay: 0.1s; }
+    .fade-in-2 { animation-delay: 0.2s; }
+    .fade-in-3 { animation-delay: 0.3s; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .article-header { padding: 5rem 1.5rem 2rem; }
+      .post-nav { grid-template-columns: 1fr; }
+      .author-card { flex-direction: column; text-align: center; }
+      .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .related-item { flex-direction: column; gap: 0.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="{{ '/' | relative_url }}" class="nav-logo">Zeu's Notes</a>
+      <ul class="nav-links">
+        <li><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
+        <li><a href="{{ '/posts/' | relative_url }}" class="nav-link">Posts</a></li>
+        <li><a href="{{ '/tags/' | relative_url }}" class="nav-link">Tags</a></li>
+        <li><a href="https://github.com/ZeuPark" class="nav-link" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <article>
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-meta fade-in fade-in-1">
+        <time class="article-date" datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%B %d, %Y" }}
+        </time>
+        {% assign words = content | number_of_words %}
+        {% assign minutes = words | divided_by: 200 %}
+        {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+        <span class="article-reading-time">{{ minutes }} min read</span>
+      </div>
+      <h1 class="article-title fade-in fade-in-2">{{ page.title }}</h1>
+      {% if page.tags.size > 0 %}
+      <div class="article-tags fade-in fade-in-3">
+        {% for tag in page.tags %}
+        <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="article-tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </header>
+
+    <!-- Article Content -->
+    <div class="article-content fade-in fade-in-3">
+      {{ content }}
     </div>
 
-    {% if site.comments.provider and page.comments %}
-      {% if jekyll.environment == 'production' %}
-        {% include comments.html %}
+    <!-- Author -->
+    <aside class="article-author">
+      <div class="author-card">
+        <img src="{{ site.author.avatar | default: '/assets/images/CodingCat2.png' | relative_url }}" alt="{{ site.author.name }}" class="author-avatar">
+        <div class="author-info">
+          <h4>{{ site.author.name | default: "Zeu Park" }}</h4>
+          <p>{{ site.author.bio | default: "A curious developer documenting my journey through code." }}</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Post Navigation -->
+    <nav class="post-nav">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="post-nav-item">
+        <div class="post-nav-label">← Previous</div>
+        <div class="post-nav-title">{{ page.previous.title }}</div>
+      </a>
       {% else %}
-        <p>
-          Comments are configured with provider: <strong>{{ site.comments.provider }}</strong>,
-          but are disabled in non-production environments.
-        </p>
+      <div></div>
       {% endif %}
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="post-nav-item post-nav-item--next">
+        <div class="post-nav-label">Next →</div>
+        <div class="post-nav-title">{{ page.next.title }}</div>
+      </a>
+      {% endif %}
+    </nav>
+
+    <!-- Related Posts -->
+    {% assign related = site.related_posts | slice: 0, 4 %}
+    {% if related.size > 0 %}
+    <section class="related-posts">
+      <h3>Related Posts</h3>
+      <div class="related-list">
+        {% for post in related %}
+        <a href="{{ post.url | relative_url }}" class="related-item">
+          <span class="related-item-title">{{ post.title }}</span>
+          <span class="related-item-date">{{ post.date | date: "%b %d" }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
     {% endif %}
   </article>
 
-  {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
-  {% if page.id and page.related and site.related_posts.size > 0 %}
-    {% include page__related.html posts=site.related_posts %}
-  {% comment %}<!-- otherwise show recent posts if no related when `related: true` -->{% endcomment %}
-  {% elsif page.id and page.related %}
-    {% include page__related.html posts=site.posts %}
-  {% endif %}
-</div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-text">© {{ 'now' | date: "%Y" }} {{ site.author.name | default: "Zeu Park" }}</p>
+      <div class="footer-links">
+        <a href="mailto:{{ site.author.email | default: 'parkzeu68@gmail.com' }}" class="footer-link">Email</a>
+        <a href="https://github.com/ZeuPark" class="footer-link" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/zeupark/" class="footer-link" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
