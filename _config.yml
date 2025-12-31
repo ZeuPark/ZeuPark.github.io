@@ -4,7 +4,7 @@ minimal_mistakes_skin: "default"
 
 title: "Zeu's Notes"
 name: "Zeu Park"
-description: "A developer’s journey through code, learning, and problem-solving."
+description: "Exploring energy, data, and everything in between."
 url: "https://zeupark.github.io/"
 baseurl:
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
